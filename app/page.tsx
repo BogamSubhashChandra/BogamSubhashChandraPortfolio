@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Github, Linkedin, Download } from "lucide-react";
 
-export default function Home(): JSX.Element {
+export default function Home() {
+
   return (
     <>
       <Head>
@@ -30,8 +31,16 @@ export default function Home(): JSX.Element {
             </p>
 
             <p className="mt-2 text-sm">
-              📍 India · 📧 subhashchandrabogam@gmail.com · 📞 8639468821
+              📍 India · 📧{" "}
+                <a href="mailto:subhashchandrabogam@gmail.com" className="text-blue-500 hover:underline">
+                    subhashchandrabogam@gmail.com
+                    </a>{" "}
+                    · 📞{" "}
+                <a href="tel:+918639468821" className="text-blue-500 hover:underline">
+                    +91 8639468821
+                </a>
             </p>
+
 
             <div className="mt-6 flex justify-center gap-4 flex-wrap">
               <a
@@ -44,7 +53,7 @@ export default function Home(): JSX.Element {
               </a>
 
               <a
-                href="https://github.com/YOUR_GITHUB"
+                href="https://github.com/BogamSubhashChandra"
                 target="_blank"
                 className="border border-white px-4 py-2 rounded-xl flex items-center gap-2"
               >
@@ -53,7 +62,7 @@ export default function Home(): JSX.Element {
               </a>
 
               <a
-                href="https://linkedin.com/in/YOUR_LINKEDIN"
+                href="https://www.linkedin.com/in/bogam-subhash-chandra"
                 target="_blank"
                 className="border border-white px-4 py-2 rounded-xl flex items-center gap-2"
               >
