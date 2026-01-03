@@ -5,88 +5,66 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Download, Mail, Phone } from "lucide-react";
 import type { Variants } from "framer-motion";
 
-/* ================= SEO + ANIMATION VARIANTS ================= */
-const sectionVariant: Variants = {
-  hidden: { opacity: 0, y: 30 },
+/* ================= PROFESSIONAL ANIMATION SYSTEM ================= */
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
   },
 };
 
-const containerVariant: Variants = {
+const stagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const itemVariant: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 },
-};
-
 export default function Portfolio() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="bg-gray-50 text-gray-900 overflow-x-hidden">
       <Head>
-        {/* ===== Primary SEO ===== */}
-        <title>Java Backend Developer | Banking & FinTech | Bogam Subhash Chandra</title>
+        {/* ===== SEO ===== */}
+        <title>Software Developer (Backend) | Java, Spring Boot | Bogam Subhash Chandra</title>
         <meta
           name="description"
-          content="Java Backend Developer with 2.5+ years of experience in Banking and FinTech domains. Expertise in Spring Boot, Quarkus, REST APIs, PostgreSQL, and scalable microservices."
+          content="Software Developer (Backend) with experience in Java, Spring Boot, Quarkus, and REST APIs. Experienced in building scalable, maintainable backend systems for enterprise applications."
         />
         <meta
           name="keywords"
-          content="Java Backend Developer, Banking Software Engineer, FinTech Developer, Spring Boot, Quarkus, Microservices, REST APIs"
+          content="Software Developer, Backend Developer, Java Developer, Spring Boot, REST APIs, Microservices"
         />
         <meta name="author" content="Bogam Subhash Chandra" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* ===== OpenGraph / LinkedIn ===== */}
-        <meta property="og:title" content="Java Backend Developer | Banking & FinTech" />
-        <meta
-          property="og:description"
-          content="Experienced Java Backend Developer specializing in Banking and FinTech systems using Spring Boot, Quarkus, and cloud-native microservices." 
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://portfolio.vercel.app" />
-        <meta property="og:image" content="/og-image.png" />
-
-        {/* ===== Twitter Card ===== */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Java Backend Developer | Banking & FinTech" />
-        <meta
-          name="twitter:description"
-          content="Java Backend Developer with Banking & FinTech experience. Spring Boot, Quarkus, REST APIs, PostgreSQL." 
-        />
       </Head>
 
-      {/* ===== HERO SECTION ===== */}
+      {/* ================= HERO ================= */}
       <motion.section
-        variants={sectionVariant}
         initial="hidden"
         animate="visible"
-        className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-16 sm:py-20"
+        variants={fadeUp}
+        className="border-b border-gray-200"
       >
         <motion.div
-          variants={containerVariant}
+          variants={stagger}
           initial="hidden"
           animate="visible"
-          className="max-w-5xl mx-auto px-4 sm:px-6 text-center"
+          className="max-w-5xl mx-auto px-6 py-20"
         >
-          <motion.h1 variants={itemVariant} className="text-3xl sm:text-4xl md:text-5xl font-bold">
+          <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl font-bold">
             Bogam Subhash Chandra
           </motion.h1>
 
-          <motion.p variants={itemVariant} className="mt-4 text-base sm:text-xl">
-            Java Backend Developer | Banking & FinTech Systems
+          <motion.p variants={fadeUp} className="mt-3 text-lg text-gray-700">
+            Software Developer (Backend)
           </motion.p>
 
-          <motion.p variants={itemVariant} className="mt-2 text-sm sm:text-base opacity-90">
-            Spring Boot · Quarkus · Microservices · REST APIs · PostgreSQL
+          <motion.p variants={fadeUp} className="mt-2 text-sm text-gray-600 max-w-2xl">
+            Java backend developer with experience in designing and developing RESTful APIs,
+            microservices, and data-driven applications using Spring Boot and Quarkus.
           </motion.p>
 
-          <motion.div variants={itemVariant} className="mt-4 flex justify-center gap-6 flex-wrap text-sm">
+          <motion.div variants={fadeUp} className="mt-5 flex gap-6 flex-wrap text-sm">
             <a href="mailto:subhashchandrabogam@gmail.com" className="flex items-center gap-2 hover:underline">
               <Mail size={16} /> subhashchandrabogam@gmail.com
             </a>
@@ -95,123 +73,113 @@ export default function Portfolio() {
             </a>
           </motion.div>
 
-          <motion.div variants={itemVariant} className="mt-6 flex justify-center gap-4 flex-wrap">
-            <a href="/resume.pdf" download className="bg-white text-blue-800 px-6 py-2 rounded-xl font-semibold shadow flex items-center gap-2">
-              <Download size={18} /> Resume
+          <motion.div variants={fadeUp} className="mt-6 flex gap-4 flex-wrap">
+            <a
+              href="/resume.pdf"
+              download
+              className="bg-gray-900 text-white px-6 py-2 rounded-lg font-medium"
+            >
+              <Download size={16} className="inline mr-2" /> Resume
             </a>
-            <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer" className="border border-white px-4 py-2 rounded-xl flex items-center gap-2">
-              <Github size={18} /> GitHub
+            <a
+              href="https://github.com/your-github"
+              className="border border-gray-300 px-5 py-2 rounded-lg flex items-center gap-2"
+            >
+              <Github size={16} /> GitHub
             </a>
-            <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" className="border border-white px-4 py-2 rounded-xl flex items-center gap-2">
-              <Linkedin size={18} /> LinkedIn
+            <a
+              href="https://linkedin.com/in/your-linkedin"
+              className="border border-gray-300 px-5 py-2 rounded-lg flex items-center gap-2"
+            >
+              <Linkedin size={16} /> LinkedIn
             </a>
           </motion.div>
         </motion.div>
       </motion.section>
 
-      {/* ===== ABOUT ===== */}
+      {/* ================= ABOUT ================= */}
       <motion.section
-        id="about"
-        variants={sectionVariant}
+        variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-14 sm:py-16"
+        className="py-16"
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6">Professional Summary</h2>
-          <p className="leading-relaxed text-sm sm:text-base">
-            Java Backend Developer with 2.5+ years of hands-on experience in Banking and FinTech domains.
-            Strong expertise in designing secure, scalable microservices using Spring Boot and Quarkus.
-            Proven experience in building RESTful APIs, integrating databases, and supporting high-volume financial transactions.
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-2xl font-semibold mb-4">Summary</h2>
+          <p className="text-gray-700 leading-relaxed max-w-3xl">
+            Software Developer with 2.5+ years of professional experience in backend development.
+            Skilled in Java, Spring Boot, and Quarkus, with a strong understanding of REST APIs,
+            database integration, and application performance. Experienced in collaborating with
+            cross-functional teams to deliver reliable software solutions.
           </p>
         </div>
       </motion.section>
 
-      {/* ===== SKILLS ===== */}
+      {/* ================= SKILLS ================= */}
       <motion.section
-        id="skills"
-        variants={sectionVariant}
+        variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="bg-white py-14 sm:py-16"
+        className="bg-white py-16"
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6">Technical Skills</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm sm:text-base">
-            <ul className="list-disc list-inside">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-2xl font-semibold mb-6">Technical Skills</h2>
+          <div className="grid sm:grid-cols-2 gap-6 text-sm">
+            <ul className="list-disc list-inside text-gray-700">
               <li><b>Languages:</b> Java, SQL, Python</li>
-              <li><b>Backend:</b> Spring Boot, Quarkus, REST APIs, Microservices</li>
-              <li><b>Databases:</b> PostgreSQL, MySQL, MongoDB</li>
+              <li><b>Backend:</b> Spring Boot, Quarkus, REST APIs</li>
+              <li><b>Databases:</b> PostgreSQL, MySQL</li>
             </ul>
-            <ul className="list-disc list-inside">
-              <li><b>Cloud & DevOps:</b> Azure, Docker</li>
-              <li><b>Testing:</b> JUnit, Mockito, Apache JMeter</li>
-              <li><b>Tools:</b> Git, Postman, CI/CD Pipelines</li>
+            <ul className="list-disc list-inside text-gray-700">
+              <li><b>Tools:</b> Git, Postman, JUnit, Mockito</li>
+              <li><b>Cloud:</b> Azure, Docker (basic)</li>
+              <li><b>Testing:</b> API & performance testing</li>
             </ul>
           </div>
         </div>
       </motion.section>
 
-      {/* ===== PROJECTS ===== */}
+      {/* ================= PROJECTS ================= */}
       <motion.section
-        id="projects"
-        variants={sectionVariant}
+        variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-14 sm:py-16 bg-gray-50"
+        className="py-16"
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8">Key Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div variants={itemVariant} className="p-6 bg-white border rounded-2xl shadow-sm">
-              <h3 className="text-lg sm:text-xl font-semibold">Banking Microservices Platform</h3>
-              <p className="text-sm text-gray-600 mt-1">Spring Boot · Quarkus · PostgreSQL · Azure</p>
-              <p className="mt-3 text-sm">
-                Developed secure backend microservices for banking systems including onboarding,
-                account management, and transaction workflows. Focused on performance optimization,
-                reliability, and regulatory compliance.
-              </p>
-            </motion.div>
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-2xl font-semibold mb-8">Projects</h2>
 
-            <motion.div variants={itemVariant} className="p-6 bg-white border rounded-2xl shadow-sm">
-              <h3 className="text-lg sm:text-xl font-semibold">FASTag Onboarding & Management System</h3>
-              <p className="text-sm text-gray-600 mt-1">Quarkus · FlutterFlow · PostgreSQL</p>
-              <p className="mt-3 text-sm">
-                Implemented FASTag onboarding and lifecycle management services with Quarkus backend.
-                Integrated FlutterFlow frontend and ensured reliable data flow and validation for
-                FinTech operations.
+          <div className="space-y-6">
+            <div className="border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold">Banking Backend Services</h3>
+              <p className="text-sm text-gray-600 mt-1">Java · Spring Boot · PostgreSQL</p>
+              <p className="mt-3 text-sm text-gray-700">
+                Developed backend services for banking applications including account onboarding
+                and transaction processing. Focused on clean API design, database consistency,
+                and performance optimization.
               </p>
-            </motion.div>
+            </div>
+
+            <div className="border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold">FASTag Onboarding System</h3>
+              <p className="text-sm text-gray-600 mt-1">Quarkus · FlutterFlow · PostgreSQL</p>
+              <p className="mt-3 text-sm text-gray-700">
+                Built REST APIs for FASTag onboarding and lifecycle management.
+                Integrated backend services with a FlutterFlow frontend and ensured
+                smooth data validation and workflow handling.
+              </p>
+            </div>
           </div>
         </div>
       </motion.section>
 
-      {/* ===== FOOTER ===== */}
-      <motion.footer
-        variants={sectionVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="bg-gray-900 text-white py-6 sm:py-8 text-center text-sm"
-      >
-        © {new Date().getFullYear()} Bogam Subhash Chandra · Java Backend Developer
-      </motion.footer>
-
-      {/* ===== Google Analytics (GA4) ===== */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-          `,
-        }}
-      />
+      {/* ================= FOOTER ================= */}
+      <footer className="border-t border-gray-200 py-8 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Bogam Subhash Chandra · Software Developer
+      </footer>
     </main>
   );
 }
