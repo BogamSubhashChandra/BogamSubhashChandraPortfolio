@@ -86,7 +86,7 @@ export default function Portfolio() {
               variants={itemVariant}
               className="mt-6 flex justify-center gap-4 flex-wrap"
             >
-              <a href="/resume.pdf" download className="bg-white text-blue-700 px-6 py-2 rounded-xl font-semibold shadow flex items-center gap-2">
+              <a href="/bogam subhash chandra Resume.pdf" download className="bg-white text-blue-700 px-6 py-2 rounded-xl font-semibold shadow flex items-center gap-2">
                 <Download size={18} /> Resume
               </a>
               <a href="https://github.com/BogamSubhashChandra" target="_blank" rel="noopener noreferrer" className="border border-white px-4 py-2 rounded-xl flex items-center gap-2">
