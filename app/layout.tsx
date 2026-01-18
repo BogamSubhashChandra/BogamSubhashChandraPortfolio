@@ -1,17 +1,5 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-export const metadata: Metadata = {
-  title: "Bogam Subhash Chandra | Software Developer",
-  description:
-    "Software Developer specializing in Java backend development, REST APIs, and scalable applications.",
-};
+import { ThemeProvider } from "./providers/theme-provider";
 
 export default function RootLayout({
   children,
@@ -20,8 +8,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        {children}
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
