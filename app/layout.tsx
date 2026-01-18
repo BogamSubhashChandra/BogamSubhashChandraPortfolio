@@ -2,7 +2,9 @@
 
 import { ThemeProvider, ThemeToggle } from "@/components/ThemeContext";
 import { AnimatePresence, motion } from "framer-motion";
-import "@/styles/globals.css";
+import "@/app/layout.tsx";
+import { easeInOut } from "framer-motion";
+
 
 export default function RootLayout({
   children,
@@ -29,6 +31,7 @@ export default function RootLayout({
               key={Math.random()} // triggers on route change
               {...pageTransition}
               className="min-h-screen relative overflow-hidden"
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             >
               {/* Ripple Overlay */}
               <motion.div

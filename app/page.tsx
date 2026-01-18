@@ -4,6 +4,7 @@ import { motion, AnimatePresence, Variants, easeInOut } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import Card from "@/components/Card";
 import ProjectCard from "@/components/ProjectCard";
+import SkillChart from "@/components/SkillChart";
 
 const pageVariants: Variants = {
   initial: { opacity: 0, scale: 0.97 },
@@ -53,6 +54,15 @@ export default function HomePage() {
               stack="Java · Spring Boot · PostgreSQL"
               img="/banking.png"
               link="https://github.com/BogamSubhashChandra/java-springboot-application"
+            />
+            <h2 className="text-3xl font-semibold mb-8 mt-20">Skills</h2>
+            <SkillChart
+              skills={[
+                { name: "Java", level: 90, color: "bg-blue-500" },
+                { name: "Spring Boot", level: 85, color: "bg-emerald-500" },
+                { name: "Quarkus", level: 80, color: "bg-violet-500" },
+                { name: "FlutterFlow", level: 80, color: "bg-yellow-400" },
+              ]}
             />
           </div>
         </motion.main>

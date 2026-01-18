@@ -1,38 +1,36 @@
 "use client";
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { motion } from "framer-motion";
 
-const data = [
-  { name: "Java", value: 90 },
-  { name: "Spring", value: 85 },
-  { name: "Quarkus", value: 80 },
-  { name: "FlutterFlow", value: 75 },
-];
+interface Skill {
+  name: string;
+  level: number; // 0-100
+  color: string; // Tailwind color for bar
+}
 
-export default function SkillChart() {
+interface SkillChartProps {
+  skills: Skill[];
+}
+
+export default function SkillChart({ skills }: SkillChartProps) {
   return (
-    <div className="card h-80">
-      <h3 className="font-semibold mb-4">Skill Proficiency</h3>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data}>
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Bar
-            dataKey="value"
-            fill="rgb(var(--accent))"
-            radius={[6, 6, 0, 0]}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+    <div className="space-y-4">
+      {skills.map((skill, idx) => (
+        <div key={idx}>
+          <div className="flex justify-between mb-1">
+            <span className="font-medium">{skill.name}</span>
+            <span className="font-medium">{skill.level}%</span>
+          </div>
+          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
+            <motion.div
+              className={`h-4 rounded-full ${skill.color}`}
+              initial={{ width: 0 }}
+              animate={{ width: `${skill.level}%` }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+            />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
-
