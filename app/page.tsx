@@ -124,7 +124,7 @@ export default function Portfolio() {
               className="mt-10 flex flex-wrap gap-4"
             >
               <a
-                href="/bogam-subhash-chandra-resume.pdf"
+                href="/bogam subhash chandra resume.pdf"
                 download
                 className="relative group bg-gray-900 text-white px-6 py-3 rounded-lg font-medium"
               >
@@ -240,45 +240,57 @@ export default function Portfolio() {
         </div>
       </motion.div>
 
-      {/* ================= BANKING PROJECT (SECOND) ================= */}
-      <motion.div
-        whileHover={{ y: -4 }}
-        transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        className="grid md:grid-cols-2 gap-10 items-center
-                   border border-gray-200 rounded-2xl p-8
-                   hover:shadow-lg hover:border-gray-300"
-      >
-        {/* Content */}
-        <div>
-          <h3 className="text-xl font-semibold">
-            Banking Application Services
-          </h3>
-          <p className="text-sm text-gray-500 mt-1">
-            Java · Spring Boot · PostgreSQL
-          </p>
-          <p className="mt-4 text-gray-700 leading-relaxed">
-            Developed backend services for banking applications including
-            customer onboarding, account management, and transaction
-            processing. Focused on clean REST API design, database consistency,
-            and performance optimization in enterprise environments.
-          </p>
-        </div>
+ {/* ================= BANKING PROJECT (SECOND) ================= */}
+<a
+  href="https://github.com/BogamSubhashChandra/java-springboot-application"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block"
+>
+  <motion.div
+    whileHover={{ y: -4 }}
+    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+    className="grid md:grid-cols-2 gap-10 items-center
+               border border-gray-200 rounded-2xl p-8
+               hover:shadow-lg hover:border-gray-300
+               cursor-pointer"
+  >
+    {/* ===== Content ===== */}
+    <div>
+      <h3 className="text-xl font-semibold">
+        Banking Application Services
+      </h3>
+      <p className="text-sm text-gray-500 mt-1">
+        Java · Spring Boot · PostgreSQL
+      </p>
+      <p className="mt-4 text-gray-700 leading-relaxed">
+        Developed backend services for banking applications including
+        customer onboarding, account management, and transaction
+        processing. Focused on clean REST API design, database consistency,
+        and performance optimization in enterprise environments.
+      </p>
+      <p className="mt-3 text-xs text-gray-400">
+        Click to view source code →
+      </p>
+    </div>
 
-        {/* Image */}
-        <motion.div
-          whileHover={{ scale: 1.03 }}
-          transition={{ duration: 0.4 }}
-          className="rounded-xl overflow-hidden"
-        >
-          <Image
-            src="/banking.png"
-            alt="Banking Application Dashboard"
-            width={700}
-            height={500}
-            className="object-cover rounded-xl"
-          />
-        </motion.div>
-      </motion.div>
+    {/* ===== Image ===== */}
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.4 }}
+      className="rounded-xl overflow-hidden"
+    >
+      <Image
+        src="/banking.png"
+        alt="Banking Application Dashboard"
+        width={700}
+        height={500}
+        className="object-cover rounded-xl"
+      />
+    </motion.div>
+  </motion.div>
+</a>
+
 
     </div>
   </div>
