@@ -1,27 +1,24 @@
 "use client";
 
-import { Theme, useTheme } from "@/app/providers/theme-provider";
-
-const themes: Theme[] = ["light", "dark", "blue", "emerald", "violet"];
+import { Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   return (
-    <div className="flex gap-2 flex-wrap">
-      {themes.map((t) => (
-        <button
-          key={t}
-          onClick={(e) =>
-            setTheme(t, e.clientX, e.clientY)
-          }
-          className={`px-3 py-1 rounded-md border text-sm
-            ${theme === t ? "font-semibold border-black" : "border-gray-300"}
-          `}
-        >
-          {t}
-        </button>
-      ))}
-    </div>
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-lg hover:scale-110 transition-transform fixed top-4 right-4 z-50"
+    >
+      {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+    </button>
   );
 }

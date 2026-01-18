@@ -1,53 +1,11 @@
-:root {
-  --bg: 255 255 255;
-  --text: 17 24 39;
-  --accent: 37 99 235;
-  --card: 243 244 246;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
 }
 
-.theme-dark {
-  --bg: 3 7 18;
-  --text: 243 244 246;
-  --accent: 99 102 241;
-  --card: 17 24 39;
+body {
+  transition: background-color 0.5s, color 0.5s;
 }
-
-.theme-blue {
-  --bg: 239 246 255;
-  --text: 30 58 138;
-  --accent: 37 99 235;
-  --card: 219 234 254;
-}
-
-.theme-emerald {
-  --bg: 236 253 245;
-  --text: 6 78 59;
-  --accent: 16 185 129;
-  --card: 209 250 229;
-}
-
-.theme-violet {
-  --bg: 245 243 255;
-  --text: 76 29 149;
-  --accent: 139 92 246;
-  --card: 237 233 254;
-}
-
-/* 🎥 Ripple */
-.theme-ripple {
-  position: fixed;
-  inset: 0;
-  background: rgb(var(--accent));
-  clip-path: circle(0% at var(--x) var(--y));
-  animation: ripple 0.6s ease-out forwards;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-@keyframes ripple {
-  to {
-    clip-path: circle(150% at var(--x) var(--y));
-    opacity: 0;
-  }
-}
-
