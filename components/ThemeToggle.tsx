@@ -1,24 +1,48 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
+    const saved = localStorage.getItem("theme") as "light" | "dark";
+    if (saved) setTheme(saved);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const createRipple = (x: number, y: number) => {
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    document.body.appendChild(ripple);
+    ripple.addEventListener("animationend", () => ripple.remove());
+  };
+
+  const toggleTheme = (e: React.MouseEvent) => {
+    createRipple(e.clientX, e.clientY);
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
-    <button
+    <motion.button
+      className="theme-toggle"
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-lg hover:scale-110 transition-transform fixed top-4 right-4 z-50"
+      whileTap={{ scale: 0.9 }}
+      aria-label="Toggle theme"
     >
-      {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-    </button>
+      {theme === "light" ? (
+        <Sun size={26} color="black" />
+      ) : (
+        <Moon size={26} color="white" />
+      )}
+    </motion.button>
   );
 }
