@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Github, Linkedin } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import ThemeToggle from "../components/ThemeToggle";
+
 
 /* ================= SAFE ANIMATIONS ================= */
 
