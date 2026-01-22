@@ -1,3 +1,8 @@
+export type TechGroup = {
+  primary: string[];
+  secondary: string[];
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -5,8 +10,13 @@ export type Project = {
   longDescription: string;
   github: string;
   highlights: string[];
-  tech: string[]; // ✅ ADD THIS
+  tech: {
+    frontend?: TechGroup;
+    backend?: TechGroup;
+    testing?: TechGroup;
+  };
 };
+
 
 export const projects: Project[] = [
   {
@@ -23,7 +33,17 @@ export const projects: Project[] = [
       "SonarQube quality enforcement",
       "JMeter performance testing",
     ],
-    tech: ["Java", "Spring Boot", "Microservices", "MySQL","Unit Testing", "JMeter", "REST APIs","Black-box Testing"],
+    tech: {
+      backend: {
+      primary: ["Java", "Spring Boot", "Microservices"],
+      secondary: ["REST APIs", "MySQL"]
+    },
+    testing: {
+      primary: ["Unit Testing"],
+      secondary: ["JMeter", "Black-box Testing"]
+    }
+  }
+
   },
   {
     slug: "fastag-onboarding",
@@ -38,7 +58,21 @@ export const projects: Project[] = [
       "Editing FASTag Plazas",
       "Adaptive UI design",
     ],
-     tech: ["FlutterFlow", "API Integration", "UI/UX Design" ,"Responsive Design","Adaptive Layouts"],
+     tech: {
+  frontend: {
+    primary: ["FlutterFlow"],
+    secondary: ["UI/UX Design", "Responsive Design", "Adaptive Layouts"]
+  },
+  backend: {
+    primary: ["API Integration"],
+    secondary: []
+  },
+  testing: {
+    primary: [],
+    secondary: []
+  }
+}
+
   },
   {
     slug: "fastag-quarkus",
@@ -54,10 +88,15 @@ export const projects: Project[] = [
       "Database design with PostgreSQL",
       "Using record types for data modeling",
     ],
-    tech: ["Java", "Quarkus", "Microservices"," PostgreSQL", "REST APIs","Record Types"],
+    tech: {
+  backend: {
+    primary: ["Java", "Quarkus", "Microservices"],
+    secondary: ["PostgreSQL", "REST APIs", "Record Types"]
   },
-];
-
-
-
-  
+  testing: {
+    primary: ["Blackbox Testing"],
+    secondary: []
+  }
+}
+  },
+];     

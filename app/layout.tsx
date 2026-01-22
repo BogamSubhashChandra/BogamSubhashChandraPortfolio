@@ -1,8 +1,8 @@
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import PageTransition from "@/components/PageTransition";
-import Navbar from "@/components/Navbar";
 import ThemeToggle from "@/components/ThemeToggle";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 export default function RootLayout({
   children,
@@ -13,7 +13,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar />
+          <AnimatedBackground />
           <ThemeToggle />
           <PageTransition>{children}</PageTransition>
         </ThemeProvider>
@@ -21,4 +21,3 @@ export default function RootLayout({
     </html>
   );
 }
-
