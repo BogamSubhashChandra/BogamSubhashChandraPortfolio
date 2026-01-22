@@ -34,13 +34,67 @@ export default function ProjectDetail({
         </p>
 
         <h2 className="text-lg font-semibold mb-2">Technologies</h2>
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tech.map((t) => (
-            <span key={t} className="px-3 py-1 text-xs rounded-full border">
-              {t}
+        <h2 className="text-lg font-semibold mb-4">Technologies</h2>
+
+<div className="space-y-6 mb-8">
+  {Object.entries(project.tech).map(([group, sets]) => {
+    const { primary, secondary } = sets;
+
+    if (
+      (!primary || primary.length === 0) &&
+      (!secondary || secondary.length === 0)
+    ) {
+      return null;
+    }
+
+    return (
+      <div key={group} className="space-y-3">
+        {/* Group label */}
+        <p className="text-xs uppercase tracking-wide text-slate-500">
+          {group}
+        </p>
+
+        {/* Skills */}
+        <div className="flex flex-wrap gap-x-4 gap-y-3">
+          {primary.map((skill) => (
+            <span
+              key={skill}
+              className="
+                px-4 py-1.5
+                text-xs font-semibold
+                rounded-full
+                bg-indigo-600/15
+                text-indigo-600
+                border border-indigo-500/40
+                whitespace-nowrap
+              "
+            >
+              {skill}
+            </span>
+          ))}
+
+          {secondary.map((skill) => (
+            <span
+              key={skill}
+              className="
+                px-4 py-1.5
+                text-xs font-medium
+                rounded-full
+                border border-slate-400/40 dark:border-slate-600/40
+                text-slate-700 dark:text-slate-300
+                bg-white/60 dark:bg-black/30
+                whitespace-nowrap
+              "
+            >
+              {skill}
             </span>
           ))}
         </div>
+      </div>
+    );
+  })}
+</div>
+
 
         <a
           href={project.github}
