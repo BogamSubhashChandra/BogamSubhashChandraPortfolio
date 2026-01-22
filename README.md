@@ -10,8 +10,6 @@
 
 ## 📄 Resume (GitHub Pages)
 
-👉 **View my resume online:**  
-🔗 https://bogamsubhashchandra.github.io/resume/
 
 👉 **Download PDF:**  
 📥 📄 **Resume**  
