@@ -1,6 +1,5 @@
 import HeroParallax from "@/components/HeroParallax";
 import ScrollSection from "@/components/ScrollSection";
-import ContactSection from "@/components/ContactSection";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
@@ -8,9 +7,6 @@ export default function Home() {
   return (
     <>
       <HeroParallax />
-
-      {/* CONTACT ICONS (TOP / HERO AREA) */}
-      <ContactSection />
 
       {/* ABOUT */}
       <ScrollSection>
@@ -35,24 +31,59 @@ export default function Home() {
       </ScrollSection>
 
       {/* SKILLS */}
-      <ScrollSection>
-        <h2>Skills</h2>
-        <p>
-          Java, Spring Boot, Quarkus, Microservices, REST APIs, FlutterFlow, SQL,
-          Git, JMeter, Agile Methodologies
-        </p>
-      </ScrollSection>
+<ScrollSection>
+  <h2>Skills</h2>
 
-      {/* EXPERIENCE */}
-      <ScrollSection>
-        <h2>Experience</h2>
-        <p>
-          IBM India Pvt Ltd — 3 Years
-          <br />
-          Built scalable microservices for banking and FASTag acquiring
-          platforms.
-        </p>
-      </ScrollSection>
+  <p>
+    Java, Spring Boot, Quarkus, Microservices, REST APIs, FlutterFlow,
+    SQL, Git, JMeter, Agile Methodologies
+  </p>
+
+  {/* Bullet highlights */}
+  <ul className="mt-3 ml-4 list-disc space-y-2 text-sm text-slate-600 dark:text-slate-400">
+    <li>
+      Backend and microservices development using Java, Spring Boot, and Quarkus
+    </li>
+    <li>
+      Design and integration of secure, scalable REST APIs
+    </li>
+    <li>
+      Banking and FASTag domain application development
+    </li>
+    <li>
+      FlutterFlow-based UI development and backend integration
+    </li>
+    <li>
+      Testing, performance optimization, and code quality practices
+    </li>
+  </ul>
+</ScrollSection>
+
+
+<ScrollSection>
+  <h2>Experience</h2>
+
+  <p className="font-medium mb-2">
+    IBM India Pvt Ltd — Application Developer (3 Years)
+  </p>
+
+  <p>
+    Worked as an Application Developer in the banking and financial services
+    domain, contributing to the design and development of scalable,
+    enterprise-grade applications. Played a key role in building
+    microservices-based systems using Java, Spring Boot, and Quarkus,
+    supporting FASTag acquiring and onboarding platforms.
+  </p>
+
+  <p>
+    Responsibilities included developing secure REST APIs, integrating
+    business workflows, improving performance through testing and
+    optimization, and ensuring code quality using industry best practices.
+    Collaborated closely with frontend, QA, and DevOps teams to deliver
+    reliable, production-ready solutions.
+  </p>
+</ScrollSection>
+
 
       {/* PROJECT PREVIEW */}
       <section className="py-16">
