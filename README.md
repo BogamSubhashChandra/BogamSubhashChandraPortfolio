@@ -71,12 +71,12 @@ Experienced in developing **high-performance REST APIs**, ensuring **code qualit
 ### 🔹 FASTag Acquiring & Onboarding Application
 - FlutterFlow + Microservices
 - End-to-end onboarding workflows  
-🔗 https://github.com/BogamSubhashChandra/plaza_onboarding_frontend.git
+🔗 https://github.com/BogamSubhashChandra/plaza_onboarding_frontend
 
 ### 🔹 FASTag Acquiring Platform (Quarkus)
 - Java Quarkus, PostgreSQL
 - High-performance backend services  
-🔗 https://github.com/BogamSubhashChandra/plaza-onboarding-service.git
+🔗 https://github.com/BogamSubhashChandra/plaza-onboarding-service
 
 ---
 
