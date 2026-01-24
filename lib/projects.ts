@@ -46,13 +46,13 @@ export const projects: Project[] = [
 
   },
   {
-    slug: "fastag-onboarding",
-    title: "FASTag Acquiring & Onboarding Application",
+    slug: "fastag-onboarding-frontend",
+    title: "FASTag Acquiring Frontend Application",
     description:
       "FlutterFlow onboarding system backed by microservices.",
     longDescription:
       "Built an end-to-end FASTag onboarding application using FlutterFlow with backend microservices handling validation, onboarding workflows, and FASTag lifecycle management.",
-    github: "https://github.com/BogamSubhashChandra",
+    github: "https://github.com/BogamSubhashChandra/plaza_onboarding_frontend.git",
     highlights: [
       "Adding FASTag Plazas",
       "Editing FASTag Plazas",
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "High-performance FASTag backend built using Java Quarkus.",
     longDescription:
       "Built an end-to-end FASTag onboarding application using FlutterFlow with backend microservices handling validation, onboarding workflows, and FASTag lifecycle management.",
-    github: "https://github.com/BogamSubhashChandra",
+    github: "https://github.com/BogamSubhashChandra/plaza-onboarding-service.git",
     highlights: [
       "Microservice-based architecture using Quarkus framework",
       "Secure REST APIs",

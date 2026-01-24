@@ -4,7 +4,9 @@
 📍 India  
 📧 subhashchandrabogam@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/bogam-subhash-chandra)  
-💻 [GitHub](https://github.com/BogamSubhashChandra)  
+💻 [GitHub](https://github.com/BogamSubhashChandra)
+🌐 [Portfolio](https://bogam-subhash-chandra-portfolio-3dp.vercel.app/)
+
 
 ---
 
@@ -69,12 +71,12 @@ Experienced in developing **high-performance REST APIs**, ensuring **code qualit
 ### 🔹 FASTag Acquiring & Onboarding Application
 - FlutterFlow + Microservices
 - End-to-end onboarding workflows  
-🔗 https://github.com/BogamSubhashChandra
+🔗 https://github.com/BogamSubhashChandra/plaza_onboarding_frontend.git
 
 ### 🔹 FASTag Acquiring Platform (Quarkus)
 - Java Quarkus, PostgreSQL
 - High-performance backend services  
-🔗 https://github.com/BogamSubhashChandra
+🔗 https://github.com/BogamSubhashChandra/plaza-onboarding-service.git
 
 ---
 
