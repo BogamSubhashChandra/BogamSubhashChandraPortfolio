@@ -15,6 +15,7 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
         offset: ["start start", "end end"],
     });
 
+    // 🔹 Preload Images
     useEffect(() => {
         const loadImages = async () => {
             const loadedImages: HTMLImageElement[] = [];
@@ -25,13 +26,15 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
                     const img = new Image();
                     const frameId = i.toString().padStart(4, "0");
                     img.src = `/sequence/${frameId}.png`;
+
                     img.onload = () => {
                         loadedImages[i] = img;
                         resolve();
                     };
-                    // Handle error gracefully
+
                     img.onerror = () => resolve();
                 });
+
                 promises.push(promise);
             }
 
@@ -43,6 +46,7 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
         loadImages();
     }, [frameCount]);
 
+    // 🔹 Render Frame
     const renderFrame = (index: number) => {
         const canvas = canvasRef.current;
         if (!canvas || !images[index]) return;
@@ -52,7 +56,6 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
 
         const img = images[index];
 
-        // Responsive Object-Fit Cover Logic
         const canvasRatio = canvas.width / canvas.height;
         const imgRatio = img.width / img.height;
 
@@ -70,36 +73,40 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
             offsetY = (canvas.height - drawHeight) / 2;
         }
 
-        // Clear and Draw
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#121212";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
     };
 
+    // 🔹 Scroll Animation
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         if (!isLoaded || images.length === 0) return;
+
         const frameIndex = Math.min(
             frameCount - 1,
             Math.floor(latest * frameCount)
         );
+
         requestAnimationFrame(() => renderFrame(frameIndex));
     });
 
-    // Handle resize
+    // 🔹 Resize Handling
     useEffect(() => {
         const handleResize = () => {
             if (canvasRef.current) {
                 canvasRef.current.width = window.innerWidth;
                 canvasRef.current.height = window.innerHeight;
             }
-        }
-        window.addEventListener('resize', handleResize);
+        };
+
+        window.addEventListener("resize", handleResize);
         handleResize();
-        return () => window.removeEventListener('resize', handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Initial render when loaded
+    // 🔹 Initial Frame Render
     useEffect(() => {
         if (isLoaded) {
             renderFrame(0);
@@ -109,15 +116,26 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
     return (
         <div ref={containerRef} className="h-[500vh] relative">
             <div className="sticky top-0 h-screen w-full overflow-hidden">
+                
+                {/* 🔥 Branded Loading Screen */}
                 {!isLoaded && (
-                    <div className="absolute inset-0 flex items-center justify-center text-white z-50">
-                        Loading...
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-50 bg-[#121212]">
+                        <p className="text-2xl md:text-3xl font-semibold mb-2">
+                            Bogam Subhash Chandra
+                        </p>
+                        <p className="text-sm text-gray-400 tracking-widest uppercase">
+                            Loading Experience...
+                        </p>
                     </div>
                 )}
+
+                {/* Canvas */}
                 <canvas
                     ref={canvasRef}
                     className="block w-full h-full object-cover"
                 />
+
+                {/* Overlay Text */}
                 <Overlay scrollYProgress={scrollYProgress} />
             </div>
         </div>

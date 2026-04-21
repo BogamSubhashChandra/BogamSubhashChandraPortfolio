@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #121212;
+  --background: #0a0a0a;
   --foreground: #ededed;
+  --accent: #7c3aed; /* subtle purple accent */
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -10,19 +15,68 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Scrollbar */
+/* 🔥 Selection Styling */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 🔥 Smooth Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #0a0a0a;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  transition: background 0.3s ease;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #444;
+}
+
+/* 🔥 Subtle Glow Utility */
+.glow {
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
+}
+
+/* 🔥 Gradient Text Utility */
+.gradient-text {
+  color: #a78bfa; /* fallback */
+  background: linear-gradient(90deg, #ffffff, #a78bfa);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🔥 Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🔥 TEXT SHADOW SYSTEM (your requirement) */
+.text-shadow-strong {
+  color: #ffffff;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4); /* 40% opacity, blur 8 */
+}
+
+.text-shadow-soft {
+  color: #ffffff;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.35); /* 35% opacity, blur 6 */
+}
+
+/* 🔥 Smooth Transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
