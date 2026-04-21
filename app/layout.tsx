@@ -1,22 +1,23 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import PageTransition from "@/components/PageTransition";
-import ThemeToggle from "@/components/ThemeToggle";
-import AnimatedBackground from "@/components/AnimatedBackground";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const metadata: Metadata = {
+  title: "Scrollytelling Portfolio",
+  description: "A showcase of creative development.",
+};
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <AnimatedBackground />
-          <ThemeToggle />
-          <PageTransition>{children}</PageTransition>
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${inter.variable} antialiased`}>
+        {children}
       </body>
     </html>
   );

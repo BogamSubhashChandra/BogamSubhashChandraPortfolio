@@ -1,83 +1,36 @@
-# 👨‍💻 Bogam Subhash Chandra  
-### Application Developer | Java Full-Stack | Microservices
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-📍 India  
-📧 subhashchandrabogam@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/bogam-subhash-chandra)  
-💻 [GitHub](https://github.com/BogamSubhashChandra)
-🌐 [Portfolio](https://bogam-subhash-chandra-portfolio-3dp.vercel.app/)
+## Getting Started
 
+First, run the development server:
 
----
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 📄 Resume (GitHub Pages)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-👉 **Download PDF:**  
-📥 📄 **Resume**  
-👉 [View / Download Resume](./public/bogam%20subhash%20chandra%20Resume.pdf)
----
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 🧠 Professional Summary
+## Learn More
 
-Application Developer with **3 years of experience at IBM India Pvt Ltd**, specializing in building **scalable, enterprise-grade applications**. Strong expertise in **Java Full-Stack development**, including **Spring Boot, Quarkus, and Microservices architecture**, with hands-on experience in **banking and FASTag acquiring & onboarding platforms**.
+To learn more about Next.js, take a look at the following resources:
 
-Experienced in developing **high-performance REST APIs**, ensuring **code quality, performance, and reliability**, and collaborating with cross-functional teams. Proficient in **FlutterFlow** for building modern user interfaces and delivering production-ready solutions in fast-paced environments.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 🛠️ Skills
+## Deploy on Vercel
 
-**Backend**
-- Java, Spring Boot, Quarkus
-- Microservices Architecture
-- REST APIs
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-**Frontend**
-- FlutterFlow
-- UI/UX Design
-- Responsive & Adaptive Layouts
-
-**Testing & Quality**
-- Unit Testing
-- JMeter
-- Black-box Testing
-- SonarQube
-
-**Tools**
-- Git, SQL, Agile Methodologies
-
----
-
-## 💼 Experience
-
-### IBM India Pvt Ltd  
-**Application Developer | 3 Years**
-
-- Designed and developed **microservices-based banking applications**
-- Built **FASTag acquiring & onboarding platforms**
-- Improved performance and reliability using **JMeter & code quality tools**
-- Worked closely with QA, frontend, and DevOps teams
-
----
-
-## 🚀 Projects
-
-### 🔹 Microservices-Based Banking Application
-- Java, Spring Boot, Microservices
-- Secure REST APIs & performance testing  
-🔗 https://github.com/BogamSubhashChandra/java-springboot-application
-
-### 🔹 FASTag Acquiring & Onboarding Application
-- FlutterFlow + Microservices
-- End-to-end onboarding workflows  
-🔗 https://github.com/BogamSubhashChandra/plaza_onboarding_frontend
-
-### 🔹 FASTag Acquiring Platform (Quarkus)
-- Java Quarkus, PostgreSQL
-- High-performance backend services  
-🔗 https://github.com/BogamSubhashChandra/plaza-onboarding-service
-
----
-
-⭐ _If you like my work, feel free to star my repositories!_
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
