@@ -1,109 +1,155 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const experiences = [
-    {
-        company: "IBM",
-        role: "Application Developer (Backend & Microservices)",
-        period: "May 2022 – Dec 2024",
-        description:
-            "Built and deployed 15+ microservices using Spring Boot and Quarkus, improving feature delivery speed by 20%. Reduced API response time by 30% through query optimization and caching strategies. Deployed containerized services using Docker and Azure CI/CD pipelines ensuring 99.9% uptime for high-traffic banking systems serving 10,000+ users.",
-        tech: "Spring Boot, Quarkus, Docker, Azure, PostgreSQL, JMeter",
-        projects: [
-            {
-                name: "DBS Bank Project",
-                details:
-                    "Developed backend services and handled full testing lifecycle (Unit, BBT, UAT). Performed load testing using Apache JMeter and ensured production stability during deployments.",
-            },
-            {
-                name: "HDFC Bank – FASTag System",
-                details:
-                    "Developed full-stack modules using Quarkus and FlutterFlow. Identified and resolved critical defects improving system reliability and executed end-to-end testing and deployment.",
-            },
-        ],
-    },
+  {
+    company: "IBM",
+    role: "Application Developer (Backend & Microservices)",
+    period: "May 2022 – Dec 2024",
+    description:
+      "Built and deployed 15+ microservices using Spring Boot and Quarkus. Reduced API response time by 30% through optimization and caching. Deployed containerized services using Docker and Azure CI/CD pipelines ensuring 99.9% uptime for high-traffic systems serving 10,000+ users.",
+    tech: "Spring Boot, Quarkus, Docker, Azure, PostgreSQL, JMeter",
+    projects: [
+      {
+        name: "DBS Bank Project",
+        details:
+          "Developed backend services and handled full testing lifecycle (Unit, BBT, UAT). Performed load testing using Apache JMeter.",
+        logo: "/logos/dbs.png",
+      },
+      {
+        name: "HDFC Bank – FASTag System",
+        details:
+          "Developed full-stack modules using Quarkus and FlutterFlow and improved system reliability.",
+        logo: "/logos/hdfc.png",
+      },
+    ],
+  },
 ];
 
 export default function Experience() {
-    return (
-        <section className="relative z-20 bg-[#0a0a0a] py-32 px-4 md:px-12 border-t border-white/5">
-            <div className="max-w-4xl mx-auto">
-                {/* Section Title */}
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-5xl md:text-7xl font-bold mb-20 tracking-tighter text-white text-center"
+  return (
+    <section
+      id="experience"
+      className="relative z-20 py-32 md:py-40 px-4 md:px-12 mb-32"
+    >
+      <div className="max-w-5xl mx-auto">
+
+        {/* Title (no transform → crisp) */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center text-white">
+          Professional Experience
+        </h2>
+
+        <div className="space-y-16">
+
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="will-change-auto"
+            >
+              {/* Period */}
+              <div className="text-sm text-gray-500 mb-2 tracking-wide">
+                {exp.period}
+              </div>
+
+              {/* Company */}
+              <div className="flex items-center gap-4 mb-3 group">
+
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 250 }}
                 >
-                    Professional Experience
-                </motion.h2>
+                  <Image
+                    src="/logos/ibm.png"
+                    alt="IBM"
+                    width={50}
+                    height={50}
+                    className="
+                      object-contain
+                      mix-blend-lighten
+                      brightness-110
+                      contrast-125
+                      transition duration-300
+                    "
+                  />
+                </motion.div>
 
-                {/* Timeline */}
-                <div className="relative border-l border-white/20 ml-4 md:ml-0 space-y-12">
-                    {experiences.map((exp, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="relative pl-8 md:pl-12"
-                        >
-                            {/* Timeline Dot */}
-                            <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                <h3 className="text-2xl md:text-3xl font-semibold text-white">
+                  {exp.company}
+                </h3>
+              </div>
 
-                            {/* Period */}
-                            <div className="text-sm text-gray-500 font-mono mb-2 uppercase tracking-widest">
-                                {exp.period}
-                            </div>
+              {/* Role */}
+              <h4 className="text-lg md:text-xl text-gray-400 mb-4">
+                {exp.role}
+              </h4>
 
-                            {/* Company */}
-                            <h3 className="text-3xl font-bold text-white mb-1">
-                                {exp.company}
-                            </h3>
+              {/* Metrics */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-2 py-1 text-xs bg-white/10 rounded-full">
+                  🚀 30% Faster APIs
+                </span>
+                <span className="px-2 py-1 text-xs bg-white/10 rounded-full">
+                  👥 10K+ Users
+                </span>
+                <span className="px-2 py-1 text-xs bg-white/10 rounded-full">
+                  🛡️ 99.9% Uptime
+                </span>
+              </div>
 
-                            {/* Role */}
-                            <h4 className="text-xl text-gray-400 mb-4">
-                                {exp.role}
-                            </h4>
+              {/* Description */}
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-3xl mb-6">
+                {exp.description}
+              </p>
 
-                            {/* Description */}
-                            <p className="text-gray-300 leading-relaxed max-w-2xl mb-4">
-                                {exp.description}
-                            </p>
+              {/* Tech */}
+              <p className="text-sm md:text-base text-purple-400 mb-6">
+                Tech: {exp.tech}
+              </p>
 
-                            {/* Tech Stack */}
-                            <p className="text-sm text-gray-500 mb-6">
-                                Tech: {exp.tech}
-                            </p>
+              {/* Projects */}
+              <div className="space-y-5">
+                <h5 className="text-lg font-semibold text-white mb-2">
+                  Key Client Projects
+                </h5>
 
-                            {/* Client Projects */}
-                            {exp.projects && (
-                                <div className="space-y-4">
-                                    <h5 className="text-white text-lg font-semibold">
-                                        Key Client Projects
-                                    </h5>
+                {exp.projects.map((proj, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-4"
+                  >
+                    <motion.div whileHover={{ scale: 1.15 }}>
+                      <Image
+                        src={proj.logo}
+                        alt={proj.name}
+                        width={32}
+                        height={32}
+                        className="object-contain mix-blend-lighten"
+                      />
+                    </motion.div>
 
-                                    {exp.projects.map((proj, i) => (
-                                        <div
-                                            key={i}
-                                            className="border-l border-white/10 pl-4"
-                                        >
-                                            <p className="text-white font-medium">
-                                                {proj.name}
-                                            </p>
-                                            <p className="text-gray-400 text-sm leading-relaxed">
-                                                {proj.details}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+                    <div>
+                      <p className="text-base font-medium text-white">
+                        {proj.name}
+                      </p>
+                      <p className="text-sm text-gray-400 leading-relaxed">
+                        {proj.details}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </motion.div>
+          ))}
+
+        </div>
+      </div>
+    </section>
+  );
 }

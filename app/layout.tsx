@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
@@ -28,8 +31,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased bg-[#0a0a0a] text-white`}>
-        {children}
+      <body
+        className={`
+        ${inter.variable}
+        antialiased
+        bg-[#0a0a0a]
+        text-white
+        [text-rendering:optimizeLegibility]
+        [-webkit-font-smoothing:antialiased]
+        [-moz-osx-font-smoothing:grayscale]
+        selection:bg-white/30`}
+        >
+          {/* 🔥 Sticky Navbar */}
+        <Navbar />
+        
+        
+        {/* 🔥 Scroll Progress Bar */}
+        <ScrollProgress />
+        
+
+        {/* 🔥 Main Content */}
+        <main className="pt-24">
+          {children}
+        </main>
       </body>
     </html>
   );

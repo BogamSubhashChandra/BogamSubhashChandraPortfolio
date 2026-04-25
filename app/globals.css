@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
+/* 🌙 FORCE DARK MODE */
 :root {
   --background: #0a0a0a;
-  --foreground: #ededed;
-  --accent: #7c3aed; /* subtle purple accent */
+  --foreground: #ffffff;
+  --accent: #7c3aed;
 }
 
+/* Base */
 html {
   scroll-behavior: smooth;
 }
@@ -15,68 +17,94 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
+
+  /* 🔥 CRISP TEXT FIX */
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  letter-spacing: 0.01em;
 }
 
-/* 🔥 Selection Styling */
+/* 🔥 Prevent blur from transforms */
+.text-crisp {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 🔥 Selection */
 ::selection {
   background: var(--accent);
   color: #fff;
 }
 
-/* 🔥 Smooth Scrollbar */
+/* 🔥 Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: rgba(128, 128, 128, 0.4);
   border-radius: 10px;
-  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: rgba(128, 128, 128, 0.6);
 }
 
-/* 🔥 Subtle Glow Utility */
+/* 🔥 Glow */
 .glow {
   box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
 }
 
-/* 🔥 Gradient Text Utility */
+/* 🔥 Gradient Text */
 .gradient-text {
-  color: #a78bfa; /* fallback */
+  color: #a78bfa;
   background: linear-gradient(90deg, #ffffff, #a78bfa);
-
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* 🔥 Glass Effect */
+/* 🔥 Glass (FIXED – reduced blur) */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  /* ⚠️ Reduced blur to avoid text distortion */
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* 🔥 TEXT SHADOW SYSTEM (your requirement) */
+/* 🔥 TEXT SHADOW */
 .text-shadow-strong {
   color: #ffffff;
-  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4); /* 40% opacity, blur 8 */
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.45);
 }
 
 .text-shadow-soft {
   color: #ffffff;
-  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.35); /* 35% opacity, blur 6 */
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* 🔥 Smooth Transitions */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+/* 🔥 Tooltip Animation */
+.tooltip {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.25s ease;
+}
+
+.group:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ❌ REMOVE GLOBAL TRANSITION (CAUSES BLUR ON SCROLL) */
+/* DO NOT APPLY TRANSITION TO EVERYTHING */
+
+/* 🔥 Instead use targeted transitions */
+.transition-smooth {
+  transition: all 0.3s ease;
 }
